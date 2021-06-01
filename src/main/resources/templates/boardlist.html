@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout1}">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<th:block layout:fragment="style2">
+<style>
+table, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+</style>
+</th:block>
+</head>
+<body>
+	<div class="panel panel-default" layout:fragment="content1">
+		<h1 class="panel-body">FreeBoard 목록</h1>
+		<table>
+			<tr>
+				<th>번호</th>
+				<th>title</th>
+				<th>content</th>
+				<th>writer</th>
+				<th>작성일</th>
+				<th>수정일</th>
+			</tr>
+			<tr th:each="board:${boardlist}">
+				<td th:text=${board.bno}></td>
+				<td th:text=${board.title}></td>
+				<td th:text=${board.content}></td>
+				<td th:text=${board.writer}></td>
+				<td th:text=${board.regDate}></td>
+				<td th:text=${board.updateDate}></td>
+			</tr>
+		</table>
+		</div>
+</body>
+</html>
